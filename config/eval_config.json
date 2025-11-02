@@ -1,0 +1,9 @@
+{
+    "base_model": "unsloth/mistral-7b-instruct-bnb-4bit",
+    "adapter_dir": "outputs/mistral7b_lora",
+    "eval_prompts_path": "prompts/eval_prompts.csv",
+    "max_new_tokens": 128,
+    "temperature": 0.0,
+    "top_p": 0.95,
+    "toxicity_classifier_model": "unitary/unbiased-toxic-roberta"
+}
