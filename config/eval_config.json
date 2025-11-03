@@ -1,9 +1,15 @@
 {
-    "base_model": "unsloth/mistral-7b-instruct-bnb-4bit",
-    "adapter_dir": "outputs/mistral7b_lora",
-    "eval_prompts_path": "prompts/eval_prompts.csv",
-    "max_new_tokens": 128,
-    "temperature": 0.0,
-    "top_p": 0.95,
-    "toxicity_classifier_model": "unitary/unbiased-toxic-roberta"
+  "base_model": "unsloth/mistral-7b-instruct-v0.3-bnb-4bit",
+  "adapter_dir": "outputs/mistral7b_lora",
+  "eval_prompts_path": "prompts/eval_prompts.csv",
+
+  "max_new_tokens": 64,
+  "temperature": 0.0,
+  "top_p": 0.95,
+
+  "quant_bits": 4,
+
+  "toxicity_classifier_model": "unitary/unbiased-toxic-roberta"
 }
+
+  

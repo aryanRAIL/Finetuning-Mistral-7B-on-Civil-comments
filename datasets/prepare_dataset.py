@@ -1,32 +1,31 @@
 # datasets/prepare_dataset.py
-import os
-import csv
+import os, csv
 from datasets import load_dataset
 
-def prepare_hh_rlhf(subset_size: int = 2000, out_path: str = "datasets/hh_train.csv") -> str:
+def prepare_civil_comments(subset_size=7000, out_path="datasets/tox_train.csv"):
     """
-    Build a prompt/response CSV from Anthropic HH-RLHF 'chosen' conversations.
-    We take the first user->assistant pair (harmless/helpful alignment style).
-    Output schema: prompt, response
+    Loads google/civil_comments and converts toxic -> safe rewrite instruction pairs.
+    prompt = original comment
+    response = safe rewrite target
     """
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
 
-    print("Loading Anthropic/hh-rlhf (train split)...")
-    ds = load_dataset("Anthropic/hh-rlhf", split="train")
+    print("Loading google/civil_comments...")
+    ds = load_dataset("google/civil_comments", split="train")
 
     rows = []
-    for item in ds:
-        # Each item has "chosen" and "rejected" conversations (list of {role, content})
-        chosen = item.get("chosen", [])
-        if not isinstance(chosen, list) or len(chosen) < 2:
-            continue
+    for x in ds:
+        text = x["text"]
+        toxicity_score = x["toxicity"]
 
-        # Expect alternating roles: "human" then "assistant"
-        prompt = chosen[0].get("content", "").strip()
-        response = chosen[1].get("content", "").strip()
+        if toxicity_score > 0.5:
+            # toxic comment → rewrite target
+            safe_target = "Rewrite this statement into a respectful, non-toxic alternative version."
+        else:
+            # non toxic → reinforce polite constructive style
+            safe_target = "Respond politely and constructively."
 
-        if prompt and response:
-            rows.append({"prompt": prompt, "response": response})
+        rows.append({"prompt": text.strip(), "response": safe_target})
 
         if len(rows) >= subset_size:
             break
@@ -36,9 +35,8 @@ def prepare_hh_rlhf(subset_size: int = 2000, out_path: str = "datasets/hh_train.
         w.writeheader()
         w.writerows(rows)
 
-    print(f"Saved HH-RLHF dataset to {out_path} | Samples = {len(rows)}")
+    print(f"Saved {len(rows)} samples → {out_path}")
     return out_path
 
-
 if __name__ == "__main__":
-    prepare_hh_rlhf(subset_size=2000, out_path="datasets/hh_train.csv")
+    prepare_civil_comments()

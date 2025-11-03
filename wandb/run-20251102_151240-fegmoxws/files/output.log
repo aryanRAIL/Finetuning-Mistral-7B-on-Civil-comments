@@ -1,0 +1,27 @@
+  0%|                                                                  | 0/438 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:1044: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+100%|████████████████████████████████████████████████████████| 438/438 [55:32<00:00,  7.61s/it]
+{'loss': 2.454, 'grad_norm': 1.2370980978012085, 'learning_rate': 0.000191324200913242, 'epoch': 0.05}
+{'loss': 2.2672, 'grad_norm': 1.059485673904419, 'learning_rate': 0.00018219178082191782, 'epoch': 0.09}
+{'loss': 2.2933, 'grad_norm': 0.9229239821434021, 'learning_rate': 0.0001730593607305936, 'epoch': 0.14}
+{'loss': 2.2569, 'grad_norm': 0.8195837736129761, 'learning_rate': 0.0001639269406392694, 'epoch': 0.18}
+{'loss': 2.2552, 'grad_norm': 0.8270614743232727, 'learning_rate': 0.0001547945205479452, 'epoch': 0.23}
+{'loss': 2.2069, 'grad_norm': 0.8673279881477356, 'learning_rate': 0.000145662100456621, 'epoch': 0.27}
+{'loss': 2.2526, 'grad_norm': 0.8073351383209229, 'learning_rate': 0.0001365296803652968, 'epoch': 0.32}
+{'loss': 2.1763, 'grad_norm': 0.8575566411018372, 'learning_rate': 0.0001273972602739726, 'epoch': 0.37}
+{'loss': 2.1874, 'grad_norm': 1.1510744094848633, 'learning_rate': 0.00011826484018264841, 'epoch': 0.41}
+{'loss': 2.2248, 'grad_norm': 0.7272607088088989, 'learning_rate': 0.0001091324200913242, 'epoch': 0.46}
+{'loss': 2.2092, 'grad_norm': 0.7929250001907349, 'learning_rate': 0.0001, 'epoch': 0.5}
+{'loss': 2.1888, 'grad_norm': 0.9790673851966858, 'learning_rate': 9.08675799086758e-05, 'epoch': 0.55}
+{'loss': 2.2226, 'grad_norm': 0.7432203888893127, 'learning_rate': 8.17351598173516e-05, 'epoch': 0.59}
+{'loss': 2.1805, 'grad_norm': 0.7110282182693481, 'learning_rate': 7.26027397260274e-05, 'epoch': 0.64}
+{'loss': 2.2022, 'grad_norm': 0.9147308468818665, 'learning_rate': 6.34703196347032e-05, 'epoch': 0.69}
+{'loss': 2.1663, 'grad_norm': 0.8374978303909302, 'learning_rate': 5.4337899543379e-05, 'epoch': 0.73}
+{'loss': 2.2199, 'grad_norm': 0.8308678865432739, 'learning_rate': 4.520547945205479e-05, 'epoch': 0.78}
+{'loss': 2.1645, 'grad_norm': 0.749809980392456, 'learning_rate': 3.60730593607306e-05, 'epoch': 0.82}
+{'loss': 2.2083, 'grad_norm': 0.7744096517562866, 'learning_rate': 2.6940639269406392e-05, 'epoch': 0.87}
+{'loss': 2.232, 'grad_norm': 0.9908624291419983, 'learning_rate': 1.780821917808219e-05, 'epoch': 0.91}
+{'loss': 2.1845, 'grad_norm': 0.7456657290458679, 'learning_rate': 8.675799086757991e-06, 'epoch': 0.96}
+{'train_runtime': 3333.401, 'train_samples_per_second': 2.1, 'train_steps_per_second': 0.131, 'train_loss': 2.225067373824446, 'epoch': 1.0}
+Saving LoRA adapters to outputs/mistral7b_lora

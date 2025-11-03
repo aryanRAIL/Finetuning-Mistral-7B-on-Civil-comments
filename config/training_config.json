@@ -1,9 +1,9 @@
 {
-    "base_model": "unsloth/mistral-7b-instruct-bnb-4bit",
+    "base_model": "unsloth/mistral-7b-instruct-v0.3-bnb-4bit",
     "adapter_dir": "outputs/mistral7b_lora",
     "output_dir": "outputs/mistral7b_training",
-    "train_csv": "datasets/hh_train.csv",
-    "num_train_epochs": 2,
+    "train_csv": "datasets/tox_train.csv",
+    "num_train_epochs": 1,
     "learning_rate": 0.0002,
     "per_device_train_batch_size": 2,
     "gradient_accumulation_steps": 8,
